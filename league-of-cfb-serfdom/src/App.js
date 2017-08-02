@@ -1,43 +1,18 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import firebase from "./firebase";
-import logo from './logo.svg';
-import './App.css';
+import firebase from './firebase';
+import ManagerTools from './ManagerTools'
 
 class App extends Component {
-
-  enterTeam = () => {
-    // var database = firebase.database();
-    // database.ref('teams/' + this.state.id).set({
-    //   TeamID: this.state.id,
-    //   TeamName: this.state.name
-    // });
-    var database = firebase.database();
-    database.ref('teams').on('value', function(snapshot) {
-      console.log('Count: ' + snapshot.numChildren());
-    });
-    this.setState({
-      id: '',
-      name: ''
-    });
-  }
 
   state = {
     name: '',
     id: ''
   }
 
-  nameChange = (e) => {
-    const newName = e.target.value;
-    this.setState({
-      name: newName,
-      id: newName.replace(' ', '')
-    });
-  }
-
   render() {
     return (
-      <div className="App">
+      <div className='App'>
         <Tabs>
           <TabList>
             <Tab>Manager Tools</Tab>
@@ -45,7 +20,7 @@ class App extends Component {
             <Tab>View Standings</Tab>
           </TabList>
           <TabPanel>
-            <p>Manager Tools component renders here</p>
+            <ManagerTools />
           </TabPanel>
           <TabPanel>
             <p>Rosters component goes here</p>
