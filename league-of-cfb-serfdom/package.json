@@ -6,7 +6,9 @@
     "firebase": "^4.2.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-dropdown": "^1.2.5",
     "react-scripts": "1.0.10",
+    "react-select": "^1.0.0-rc.5",
     "react-tabs": "^1.1.0"
   },
   "scripts": {

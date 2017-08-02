@@ -15,8 +15,8 @@ class App extends Component {
         <Tabs>
           <TabList>
             <Tab>Manager Tools</Tab>
-            <Tab>View Rosters</Tab>
-            <Tab>View Standings</Tab>
+            <Tab>Rosters</Tab>
+            <Tab>Standings</Tab>
           </TabList>
           <TabPanel>
             <ManagerTools />

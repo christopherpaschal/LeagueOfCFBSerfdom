@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import firebase from "./firebase";
+import OwnershipCreator from './OwnershipCreator';
 
 export default class ManagerTools extends Component {
 
   state = {
     attemptedPassword: '',
-    showTools: false
+    showTools: true
   }
 
   handleChange = (e) => {
@@ -33,14 +33,10 @@ export default class ManagerTools extends Component {
 
     let tools = [];
     if (this.state.showTools) {
+      //TODO make components for each manager tool, starting with ownership editor/creator
       tools.push(
-        <div key={1}>
-          <p>Welcome Manager</p>
-        </div>
-      );
-      tools.push(
-        <div key={2}>
-          <p>You may now use the following tools</p>
+        <div key="OwnershipCreatorTool">
+          <OwnershipCreator />
         </div>
       );
     }
