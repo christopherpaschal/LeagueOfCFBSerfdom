@@ -40,23 +40,18 @@ class App extends Component {
       <div className="App">
         <Tabs>
           <TabList>
-            <Tab>Title</Tab>
-            <Tab>Enter Team</Tab>
+            <Tab>Manager Tools</Tab>
+            <Tab>View Rosters</Tab>
+            <Tab>View Standings</Tab>
           </TabList>
           <TabPanel>
-            <div className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h2>Welcome to React</h2>
-            </div>
-            <p className="App-intro">
-              To get started, edit <code>src/App.js</code> and save to reload.
-            </p>
+            <p>Manager Tools component renders here</p>
           </TabPanel>
           <TabPanel>
-            <div>
-              Team Name: <input type='text' name='TeamName' onChange={this.nameChange} value={this.state.name} />
-              <button type='button' onClick={this.enterTeam} >Enter Team</button>
-            </div>
+            <p>Rosters component goes here</p>
+          </TabPanel>
+          <TabPanel>
+            <p>Standings component goes here</p>
           </TabPanel>
         </Tabs>
       </div>
