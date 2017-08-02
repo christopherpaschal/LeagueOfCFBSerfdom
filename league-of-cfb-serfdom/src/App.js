@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import firebase from "./firebase";
 import logo from './logo.svg';
 import './App.css';
@@ -37,17 +38,27 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <div>
-          Team Name: <input type='text' name='TeamName' onChange={this.nameChange} value={this.state.name} />
-          <button type='button' onClick={this.enterTeam} >Enter Team</button>
-        </div>
+        <Tabs>
+          <TabList>
+            <Tab>Title</Tab>
+            <Tab>Enter Team</Tab>
+          </TabList>
+          <TabPanel>
+            <div className="App-header">
+              <img src={logo} className="App-logo" alt="logo" />
+              <h2>Welcome to React</h2>
+            </div>
+            <p className="App-intro">
+              To get started, edit <code>src/App.js</code> and save to reload.
+            </p>
+          </TabPanel>
+          <TabPanel>
+            <div>
+              Team Name: <input type='text' name='TeamName' onChange={this.nameChange} value={this.state.name} />
+              <button type='button' onClick={this.enterTeam} >Enter Team</button>
+            </div>
+          </TabPanel>
+        </Tabs>
       </div>
 
     );
