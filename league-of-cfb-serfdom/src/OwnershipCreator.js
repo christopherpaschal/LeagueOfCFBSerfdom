@@ -51,6 +51,17 @@ export default class ManagerTools extends Component {
 
   assignTeam = () => {
     console.log(this.state.selectedPlayer + ' gets ' + this.state.selectedTeam);
+    const today = new Date();
+    const dateString = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+    const ownershipId = this.state.selectedPlayer + 'owns' + this.state.selectedTeam + dateString;
+    var db = firebase.database();
+    db.ref('ownerships').child(ownershipId).set({
+      'OwnershipID': ownershipId,
+      'PlayerID': this.state.selectedPlayer,
+      'TeamID': this.state.selectedTeam,
+      'IsActive': 1,
+      'DateAcquired': dateString
+    });
   }
 
   render() {
