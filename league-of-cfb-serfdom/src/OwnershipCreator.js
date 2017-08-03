@@ -9,22 +9,19 @@ export default class ManagerTools extends Component {
     super(props);
     var db = firebase.database();
     var teams = [];
-    db.ref('/teams').orderByKey().on('value', function(snapshot) {
-      snapshot.forEach(function(child) {
-        teams.push({
-          label: child.val().TeamName,
-          value: child.val().TeamID
-        });
-      });
+
+    var ref = db.ref('teams');
+    ref.orderByChild('IsOwned').equalTo(0).on('child_added', function(snapshot) {
+      teams.push({
+        label: snapshot.val().TeamName,
+        value: snapshot.val().TeamID
+      })
     });
+
     this.state = {
       teams: teams,
       selectedTeam: 'None'
     }
-  }
-
-  componentWillMount() {
-
   }
 
   handleChange = (value) => {
