@@ -7,6 +7,18 @@ export default class ManagerTools extends Component {
 
   constructor(props) {
     super(props);
+
+    this.state = {
+      selectedTeam: 'None',
+      selectedPlayer: 'None'
+    }
+  }
+
+  componentWillMount() {
+    this.fillDropdowns();
+  }
+
+  fillDropdowns = () => {
     var db = firebase.database();
 
     var teams = [];
@@ -27,41 +39,59 @@ export default class ManagerTools extends Component {
       })
     });
 
-    this.state = {
+    this.setState({
       teams: teams,
-      players: players,
-      selectedTeam: 'None',
-      selectedPlayer: 'None'
-    }
+      players: players
+    })
   }
 
   handleTeamChange = (value) => {
     const team = value;
-    this.setState({
-      selectedTeam: team.value
-    });
+    if (team) {
+      this.setState({
+        selectedTeam: team.value
+      });
+    }
   }
 
   handlePlayerChange = (value) => {
     const player = value;
-    this.setState({
-      selectedPlayer: player.value
-    });
+    if (player) {
+      this.setState({
+        selectedPlayer: player.value
+      });
+    }
   }
 
   assignTeam = () => {
-    console.log(this.state.selectedPlayer + ' gets ' + this.state.selectedTeam);
-    const today = new Date();
-    const dateString = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    const ownershipId = this.state.selectedPlayer + 'owns' + this.state.selectedTeam + dateString;
-    var db = firebase.database();
-    db.ref('ownerships').child(ownershipId).set({
-      'OwnershipID': ownershipId,
-      'PlayerID': this.state.selectedPlayer,
-      'TeamID': this.state.selectedTeam,
-      'IsActive': 1,
-      'DateAcquired': dateString
-    });
+    if (this.state.team & this.state.player) {
+      console.log(this.state.selectedPlayer + ' gets ' + this.state.selectedTeam);
+      const today = new Date();
+      const dateString = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      const ownershipId = this.state.selectedPlayer + 'owns' + this.state.selectedTeam + dateString;
+
+      var db = firebase.database();
+
+      db.ref('ownerships').child(ownershipId).set({
+        'OwnershipID': ownershipId,
+        'PlayerID': this.state.selectedPlayer,
+        'TeamID': this.state.selectedTeam,
+        'IsActive': 1,
+        'DateAcquired': dateString
+      });
+
+      db.ref('teams').child(this.state.selectedTeam).update({
+        'IsOwned': 1
+      });
+
+      this.setState({
+        selectedTeam: '',
+        selectedPlayer: ''
+      });
+
+      this.fillDropdowns();
+    }
+
   }
 
   render() {
