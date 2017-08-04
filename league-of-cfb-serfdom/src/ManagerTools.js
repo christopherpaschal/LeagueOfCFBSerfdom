@@ -33,7 +33,6 @@ export default class ManagerTools extends Component {
 
     let tools = [];
     if (this.state.showTools) {
-      //TODO make components for each manager tool, starting with ownership editor/creator
       tools.push(
         <div key="OwnershipCreatorTool">
           <OwnershipCreator />

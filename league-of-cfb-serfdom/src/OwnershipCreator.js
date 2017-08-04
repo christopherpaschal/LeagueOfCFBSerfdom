@@ -42,7 +42,7 @@ export default class ManagerTools extends Component {
     this.setState({
       teams: teams,
       players: players
-    })
+    });
   }
 
   handleTeamChange = (value) => {
@@ -95,13 +95,6 @@ export default class ManagerTools extends Component {
   }
 
   render() {
-
-    const options = [
-      { value: 1, label: 'Team 1'},
-      { value: 2, label: 'Team 2'},
-      { value: 3, label: 'Team 3'}
-    ];
-
 
     return (
       <div className="ownership-creator">

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import ManagerTools from './ManagerTools'
+import ManagerTools from './ManagerTools';
+import ResultsEditor from './ResultsEditor';
 
 class App extends Component {
 
@@ -15,11 +16,15 @@ class App extends Component {
         <Tabs>
           <TabList>
             <Tab>Manager Tools</Tab>
+            <Tab>Enter Results</Tab>
             <Tab>Rosters</Tab>
             <Tab>Standings</Tab>
           </TabList>
           <TabPanel>
             <ManagerTools />
+          </TabPanel>
+          <TabPanel>
+            <ResultsEditor />
           </TabPanel>
           <TabPanel>
             <p>Rosters component goes here</p>
