@@ -64,7 +64,7 @@ export default class ManagerTools extends Component {
   }
 
   assignTeam = () => {
-    if (this.state.team & this.state.player) {
+    if (this.state.team !== 'None' & this.state.player !== 'None') {
       console.log(this.state.selectedPlayer + ' gets ' + this.state.selectedTeam);
       const today = new Date();
       const dateString = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();

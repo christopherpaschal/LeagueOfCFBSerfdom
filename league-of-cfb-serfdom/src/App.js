@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ManagerTools from './ManagerTools';
 import ResultsEditor from './ResultsEditor';
+import Rosters from './Rosters';
 
 class App extends Component {
 
@@ -27,7 +28,7 @@ class App extends Component {
             <ResultsEditor />
           </TabPanel>
           <TabPanel>
-            <p>Rosters component goes here</p>
+            <Rosters />
           </TabPanel>
           <TabPanel>
             <p>Standings component goes here</p>

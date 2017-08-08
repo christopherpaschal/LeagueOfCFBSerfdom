@@ -64,3 +64,15 @@ body {
   border-style: solid;
   border-width: 2px;
 }
+
+.rosters {
+  width: 1300px;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  left: 10px;
+}
+
+.team-roster {
+  width: 250px;
+}

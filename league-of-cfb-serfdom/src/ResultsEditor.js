@@ -120,6 +120,7 @@ export default class ManagerTools extends Component {
           <div>
             What week is it? <input type='text'
                                     value={this.state.week}
+                                    name='week'
                                     onChange={this.handleWeekChange}
                              />
            <button type='button' onClick={this.submitResults}>Enter Results</button>
