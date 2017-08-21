@@ -85,7 +85,7 @@ export default class ManagerTools extends Component {
         winners.push(team.id);
       }
     });
-    if (winners.length > 0 & this.state.week != '') {
+    if (winners.length > 0 & this.state.week !== '') {
       winners.forEach((team) => {
         const pointsId = team + this.state.week;
         ref.child(pointsId).set({
@@ -96,6 +96,15 @@ export default class ManagerTools extends Component {
         });
       });
     }
+
+    this.setState((prevState) => ({
+      teams: prevState.teams.map((team) => {
+        return {...team, isWinner: false}
+      })
+    }));
+    this.setState({
+      week: ''
+    });
   }
 
   render() {

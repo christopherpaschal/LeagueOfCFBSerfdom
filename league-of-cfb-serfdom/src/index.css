@@ -57,6 +57,11 @@ body {
   background: #fff;
 }
 
+.App {
+  position: absolute;
+  left: 10px;
+}
+
 .ownership-creator {
   padding: 10px;
   width: 400px;
@@ -69,8 +74,6 @@ body {
   width: 1300px;
   display: flex;
   flex-direction: row;
-  position: absolute;
-  left: 10px;
 }
 
 .team-roster {

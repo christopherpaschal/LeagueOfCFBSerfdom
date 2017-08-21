@@ -3,6 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ManagerTools from './ManagerTools';
 import ResultsEditor from './ResultsEditor';
 import Rosters from './Rosters';
+import Standings from './Standings';
 
 class App extends Component {
 
@@ -31,7 +32,7 @@ class App extends Component {
             <Rosters />
           </TabPanel>
           <TabPanel>
-            <p>Standings component goes here</p>
+            <Standings />
           </TabPanel>
         </Tabs>
       </div>

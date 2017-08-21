@@ -7,7 +7,7 @@ export default class TeamRoster extends Component {
     teams: []
   }
 
-  componentDidMount() {
+  componentWillMount() {
 
     let ownedTeams = [];
     const owner = this.props.owner;
@@ -29,10 +29,8 @@ export default class TeamRoster extends Component {
 
   render() {
 
-    console.log(this.state.teams);
-
     const teamsArray = this.state.teams.map((team) => {
-      return <p>{team.id}</p>
+      return <p key={team.id}>{team.id}</p>
     });
 
     return (
